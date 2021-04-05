@@ -9,7 +9,6 @@ public class main_menu {
 	public static void main(String[] args) throws Exception {
 		init_set();
 		if(!login()) return;
-		System.out.println("Welcome " + db.getID().toString());
 		while(true) {
 			if(!function()) return;
 		}
@@ -23,7 +22,7 @@ public class main_menu {
 	*/
 	public static void init_set() throws Exception {
 		db = new Database();
-		String file = "D:\\³n¤uproject\\input.txt";
+		String file = "input.txt";
 		BufferedReader input = new BufferedReader(new FileReader(file));
 		String out;
 		while((out = input.readLine())!= null) {
@@ -70,6 +69,7 @@ public class main_menu {
 				}
 			}
 			if(db.login(id)) {
+				System.out.println("Welcome " + db.getID().toString());
 				break;
 			}
 			else {
