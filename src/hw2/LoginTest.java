@@ -36,18 +36,18 @@ class LoginTest {
 	void test() throws Exception {
 		
 		String id = "10000001";
-		ByteArrayInputStream inContent = new ByteArrayInputStream(id.getBytes());
+		InputStream inContent = new ByteArrayInputStream(id.getBytes());
 		System.setIn(inContent);
 		test.init_set();
 		test.login();
 		
-		id = "A";
+		id = "C\r\n19980228" + System.getProperty("line.separator");
 		inContent = new ByteArrayInputStream(id.getBytes());
 		System.setIn(inContent);
 		test.function();
 		
-		String expected = "總消費金額為27264";
-		String output = outContent.toString().split("\n")[8];
+		String expected = "您在19980228的總消費金額為22001";
+		String output = outContent.toString().split("\n")[10];
 		assertEquals(expected, output);
 		//fail("Not yet implemented");
 	}

@@ -69,7 +69,7 @@ public class main_menu {
 				}
 			}
 			if(db.login(id)) {
-				System.out.println("Welcome " + db.getID().toString());
+				System.out.println("Welcome " + db.getID().toString() + "");
 				break;
 			}
 			else {
@@ -103,11 +103,11 @@ public class main_menu {
 			break;
 		case 'C':
 		case 'c':
-			DateCost();
+			DateCost(scanner);
 			break;
 		case 'D':
 		case 'd':
-			MonthCost();
+			MonthCost(scanner);
 			break;
 		case 'Q':
 		case 'q':
@@ -123,17 +123,17 @@ public class main_menu {
 	 * call the functions of Database by the input by user and print the result out
 	 * Time estimate: equal to the functions of User
 	*/
-	private static void MonthCost() {
+	private static void MonthCost(Scanner scanner) {
 		System.out.println("請輸入欲查詢月份:\n");
-		Scanner scanner = new Scanner(System.in);
+		//Scanner scanner = new Scanner(System.in);
 		Integer month = scanner.nextInt();
 		Double cost = db.getMonthCost(month);
 		System.out.println("您在" + month.toString() + "的月平均消費金額為" + cost.toString() + "\n");
 		
 	}
-	private static void DateCost() {
+	private static void DateCost(Scanner scanner) {
 		System.out.println("請輸入欲查詢日期:\n");
-		Scanner scanner = new Scanner(System.in);
+		//Scanner scanner = new Scanner(System.in);
 		Integer date = scanner.nextInt();
 		Integer cost = db.getDayCost(date);
 		System.out.println("您在" + date.toString() + "的總消費金額為" + cost.toString() + "\n");
